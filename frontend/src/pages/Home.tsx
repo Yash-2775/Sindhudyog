@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   const mockFeatured = [
     { _id: '1', name: 'Premium Hapus Box', price: 1200, weight: '1 Dozen', category: 'Mango Products', isFeatured: true, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAn2IEa8339TGVOwyOJ9XaSl0866_3Lr9RpgpQPEMyLaX92aBrsdEpmywIMQACtufa-GcY-SqtdGw7cqLb8v9u-WjR4GM1u-jtFS1gcQVSqkquRDEubzqbsNqiFIqrla4r9tI6mds2UsJaS_Qze42ApEAL27nNhoHEvtStc76UZvC6akP2H_jct9RT-t3sPYOQ8xCpR7Bw5j8n35X0eqvibzpEkmnbDEFz_67OlgohkaWiGDz2NvucmgJ4HeHXtkptzUwkSvGFbs4jq' },
     { _id: '2', name: 'Malvani Masala', price: 550, weight: '500g', category: 'Masala', isFeatured: true, image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80' },
-    { _id: '3', name: 'Gir Cow Ghee', price: 990, weight: '500ml', category: 'Ghee', isFeatured: true, image: 'https://images.unsplash.com/photo-1549467794-44e23cf634db?auto=format&fit=crop&q=80' },
+    { _id: '3', name: 'Gir Cow Ghee', price: 990, weight: '500ml', category: 'Ghee', isFeatured: true, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCbOjbi_lJZS4qQ0jlF-GWFE46An9etpY1iD3wvhTCWGLpwU7tsyM7q9xhJermYQAHK0Slycsf2SekjEteLuUqrSbxa_jmrbR-ihKlu-yxHtsc0HBIvABiRqpu-jR0YugyMHwCxN2rELsXrl3KWPUdCPryPwSa3rpibMrKVMIZVwelvoEv1_uh2Dwx85BS0Z76T_aKKdMQDUPA8CixIhHp8p_Cyb7X1fin_q_mZzoVYconW7o799-i1_YFKE3Gjv-_t2fGh9Ms0ce6c' },
     { _id: '4', name: 'Kokum Sarbat', price: 250, weight: '1L', category: 'Sarbat', isFeatured: true, image: 'https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&q=80' },
   ];
 
