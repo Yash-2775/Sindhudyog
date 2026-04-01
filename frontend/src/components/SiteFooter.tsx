@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Twitter, Phone, Mail, MapPin, ShieldCheck, Heart } from 'lucide-react';
+import { Instagram, Facebook, Phone, Mail, MapPin, ShieldCheck, Heart } from 'lucide-react';
 
 const SiteFooter: React.FC = () => {
   return (
