@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, ShoppingBag, Heart } from 'lucide-react';
+import { Star, ShoppingBag } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -27,9 +27,8 @@ const Shop: React.FC = () => {
 
   const [products, setProducts] = useState<any[]>(mockProducts); 
   const [filteredProducts, setFilteredProducts] = useState<any[]>(mockProducts);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
-  const [isLoading, setIsLoading] = useState(false);
   const { addToCart } = useCart();
 
   useEffect(() => {
