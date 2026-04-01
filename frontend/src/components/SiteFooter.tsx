@@ -21,9 +21,9 @@ const SiteFooter: React.FC = () => {
               "Exploring Kokan flavours with our curated food products." We bring authentic, homemade tradition from Sindhudurg to your doorstep.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-brand-orange transition-all duration-300"><Instagram size={20} /></a>
+              <a href="https://www.instagram.com/sindhudyog/" className="h-10 w-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-brand-orange transition-all duration-300"><Instagram size={20} /></a>
               <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-brand-blue transition-all duration-300"><Facebook size={20} /></a>
-              <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-brand-blue/50 transition-all duration-300"><Twitter size={20} /></a>
+              {/* <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-brand-blue/50 transition-all duration-300"><Twitter size={20} /></a> */}
             </div>
           </div>
 
