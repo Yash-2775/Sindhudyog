@@ -68,7 +68,7 @@ const Shop: React.FC = () => {
   };
 
   return (
-    <div className="pt-20 bg-brand-cream min-h-screen relative overflow-hidden">
+    <div className="pt-24 md:pt-32 bg-brand-cream min-h-screen relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-40 -left-20 w-96 h-96 bg-brand-green/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-40 -right-20 w-96 h-96 bg-brand-orange/5 rounded-full blur-[120px] pointer-events-none" />
@@ -76,27 +76,27 @@ const Shop: React.FC = () => {
       <main className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         
         {/* Hero Title */}
-        <header className="py-16 md:py-24 text-center max-w-3xl mx-auto">
+        <header className="py-12 md:py-24 text-center max-w-3xl mx-auto">
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-serif font-medium tracking-tight mb-6 text-brand-dark"
+            className="text-4xl sm:text-5xl md:text-7xl font-serif font-medium tracking-tight mb-4 md:mb-6 text-brand-dark"
           >
             The Konkan Gallery
           </motion.h1>
-          <p className="text-lg font-sans text-on-surface-variant max-w-lg mx-auto leading-relaxed">
+          <p className="text-base md:text-lg font-sans text-on-surface-variant max-w-lg mx-auto leading-relaxed">
             Discover the authentic flavors of Sindhudurg, curated for the modern connoisseur of heritage and health.
           </p>
         </header>
 
         {/* Filter Bar */}
-        <div className="mb-20">
-          <div className="flex flex-wrap justify-center gap-3 py-2 scrollbar-hide overflow-x-auto lg:overflow-visible">
+        <div className="mb-12 md:mb-20">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 py-2 scrollbar-hide overflow-x-auto lg:overflow-visible">
             {categories.map((cat) => (
               <button 
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-8 py-3 rounded-full font-bold text-sm tracking-wide transition-all duration-300 shadow-sm
+                className={`px-6 md:px-8 py-2.5 md:py-3 rounded-full font-bold text-xs md:text-sm tracking-wide transition-all duration-300 shadow-sm
                   ${selectedCategory === cat 
                     ? 'bg-primary text-white shadow-lg scale-105' 
                     : 'bg-white hover:bg-surface-container-high text-brand-dark'
@@ -109,7 +109,7 @@ const Shop: React.FC = () => {
         </div>
 
         {/* Product Grid */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-20 pb-32">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 md:gap-x-10 gap-y-12 md:gap-y-20 pb-24 md:pb-32">
           <AnimatePresence mode="popLayout">
             {filteredProducts.map((product: any) => (
               <motion.div 
@@ -121,7 +121,7 @@ const Shop: React.FC = () => {
                 transition={{ duration: 0.5 }}
                 className="group cursor-pointer flex flex-col"
               >
-                <div className="relative aspect-4/5 bg-white rounded-2xl overflow-hidden mb-6 transition-all duration-500 group-hover:shadow-2xl group-hover:translate-y-[-8px] border border-gray-100">
+                <div className="relative aspect-4/5 bg-white rounded-2xl md:rounded-[24px] overflow-hidden mb-4 md:mb-6 transition-all duration-500 group-hover:shadow-2xl group-hover:translate-y-[-8px] border border-gray-100">
                   <img 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                     src={product.image} 
@@ -131,33 +131,33 @@ const Shop: React.FC = () => {
                   <div className="absolute inset-0 bg-brand-dark/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                      <button 
                         onClick={(e) => { e.preventDefault(); addToCart({ ...product, quantity: 1, _id: product._id }); }}
-                        className="h-12 w-12 bg-white rounded-full flex items-center justify-center text-primary shadow-xl hover:bg-primary hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0"
+                        className="h-10 w-10 md:h-12 md:w-12 bg-white rounded-full flex items-center justify-center text-primary shadow-xl hover:bg-primary hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0"
                         title="Add to Bag"
                       >
-                        <ShoppingBag size={20} />
+                        <ShoppingBag size={18} className="md:w-5 md:h-5" />
                       </button>
                       <button 
                         onClick={(e) => { e.preventDefault(); handleQuickOrder(product); }}
-                        className="px-6 h-12 bg-primary text-white rounded-full font-bold text-sm shadow-xl hover:bg-brand-dark transition-all transform translate-y-4 group-hover:translate-y-0"
+                        className="px-4 md:px-6 h-10 md:h-12 bg-primary text-white rounded-full font-bold text-xs md:text-sm shadow-xl hover:bg-brand-dark transition-all transform translate-y-4 group-hover:translate-y-0"
                       >
                         Order Now
                       </button>
                   </div>
                 </div>
 
-                <div className="flex justify-between items-start mb-2 px-1">
-                  <h3 className="text-2xl font-serif text-brand-dark leading-tight group-hover:text-primary transition-colors">
+                <div className="flex justify-between items-start mb-1.5 md:mb-2 px-1">
+                  <h3 className="text-xl md:text-2xl font-serif text-brand-dark leading-tight group-hover:text-primary transition-colors">
                     <Link to={`/product/${product._id}`}>{product.name}</Link>
                   </h3>
-                  <div className="flex items-center gap-1.5 pt-1.5">
-                    <Star className="text-primary" size={14} fill="currentColor" />
-                    <span className="text-[13px] font-bold font-sans text-brand-dark">{product.rating}</span>
+                  <div className="flex items-center gap-1 pt-1">
+                    <Star className="text-primary md:w-3.5 md:h-3.5" size={12} fill="currentColor" />
+                    <span className="text-[12px] md:text-[13px] font-bold font-sans text-brand-dark">{product.rating}</span>
                   </div>
                 </div>
 
                 <div className="flex justify-between items-baseline mt-auto px-1">
-                  <p className="text-2xl font-bold font-sans text-primary">₹{product.price}</p>
-                  <span className="text-[11px] tracking-[0.2em] font-black text-secondary uppercase font-sans">
+                  <p className="text-xl md:text-2xl font-bold font-sans text-primary">₹{product.price}</p>
+                  <span className="text-[10px] md:text-[11px] tracking-[0.2em] font-black text-secondary uppercase font-sans">
                     {product.weight}
                   </span>
                 </div>
@@ -169,5 +169,4 @@ const Shop: React.FC = () => {
     </div>
   );
 };
-
 export default Shop;

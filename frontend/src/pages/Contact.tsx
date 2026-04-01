@@ -35,19 +35,19 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <div className="pt-32 bg-brand-cream min-h-screen relative overflow-hidden pb-32">
+    <div className="pt-24 md:pt-32 bg-brand-cream min-h-screen relative overflow-hidden pb-16 md:pb-32">
       <Toaster position="bottom-right" />
       
       {/* Decorative Background Elements */}
       <div className="absolute top-20 left-[-10%] w-[500px] h-[500px] bg-brand-green/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-20 right-[-10%] w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-24 max-w-3xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <div className="text-center mb-16 md:mb-24 max-w-3xl mx-auto">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-serif font-bold text-brand-blue mb-8 leading-tight"
+            className="text-4xl sm:text-6xl md:text-8xl font-serif font-bold text-brand-blue mb-4 md:mb-8 leading-tight"
           >
             Connect <br />
             <span className="text-brand-orange italic">With Us.</span>
@@ -56,13 +56,13 @@ const Contact: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto"
+            className="text-base md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto"
           >
             Have questions about our traditional recipes or need bulk heritage gifting? Our team is always here to share the stories of Konkan.
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-12 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-20 md:mb-32">
           {contactOptions.map((opt, idx) => (
             <motion.div 
               key={idx}
@@ -70,37 +70,37 @@ const Contact: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-10 bg-white rounded-[40px] shadow-sm hover:shadow-premium transition-all duration-500 border border-gray-100 group"
+              className="p-8 md:p-10 bg-white rounded-[32px] md:rounded-[40px] shadow-sm hover:shadow-premium transition-all duration-500 border border-gray-100 group"
             >
-              <div className={`h-16 w-16 rounded-2xl bg-gray-50 flex items-center justify-center ${opt.color} mb-8 group-hover:scale-110 transition-transform`}>
+              <div className={`h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-gray-50 flex items-center justify-center ${opt.color} mb-6 md:mb-8 group-hover:scale-110 transition-transform`}>
                  {opt.icon}
               </div>
-              <h3 className="text-2xl font-serif font-bold text-brand-dark mb-4">{opt.title}</h3>
+              <h3 className="text-xl md:text-2xl font-serif font-bold text-brand-dark mb-4">{opt.title}</h3>
               {opt.details.map((detail, i) => (
-                <p key={i} className="text-gray-500 font-medium mb-1">{detail}</p>
+                <p key={i} className="text-gray-500 font-medium mb-1 text-sm md:text-base">{detail}</p>
               ))}
             </motion.div>
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Form */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white p-12 rounded-[60px] shadow-premium border border-gray-100"
+            className="bg-white p-8 md:p-12 rounded-[40px] md:rounded-[60px] shadow-premium border border-gray-100"
           >
             {!isSubmitted ? (
-               <form onSubmit={handleSubmit} className="space-y-8">
-                 <div className="grid sm:grid-cols-2 gap-8">
+               <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                     <div className="space-y-3">
                        <label className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-dark pl-2">Your Name</label>
                        <input 
                          required
                          type="text" 
-                         className="w-full h-16 bg-gray-50 rounded-[20px] px-8 font-bold text-brand-dark focus:ring-4 focus:ring-brand-blue/5 focus:bg-white border-transparent focus:border-brand-blue transition-all outline-none"
-                         placeholder="Enter full name"
+                         className="w-full h-14 md:h-16 bg-gray-50 rounded-[16px] md:rounded-[20px] px-6 md:px-8 font-bold text-brand-dark focus:ring-4 focus:ring-brand-blue/5 focus:bg-white border-transparent focus:border-brand-blue transition-all outline-none"
+                         placeholder="Full Name"
                          value={formData.name}
                          onChange={(e) => setFormData({...formData, name: e.target.value})}
                        />
@@ -110,7 +110,7 @@ const Contact: React.FC = () => {
                        <input 
                          required
                          type="email" 
-                         className="w-full h-16 bg-gray-50 rounded-[20px] px-8 font-bold text-brand-dark focus:ring-4 focus:ring-brand-blue/5 focus:bg-white border-transparent focus:border-brand-blue transition-all outline-none"
+                         className="w-full h-14 md:h-16 bg-gray-50 rounded-[16px] md:rounded-[20px] px-6 md:px-8 font-bold text-brand-dark focus:ring-4 focus:ring-brand-blue/5 focus:bg-white border-transparent focus:border-brand-blue transition-all outline-none"
                          placeholder="your@email.com"
                          value={formData.email}
                          onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -122,8 +122,8 @@ const Contact: React.FC = () => {
                     <input 
                       required
                       type="text" 
-                      className="w-full h-16 bg-gray-50 rounded-[20px] px-8 font-bold text-brand-dark focus:ring-4 focus:ring-brand-blue/5 focus:bg-white border-transparent focus:border-brand-blue transition-all outline-none"
-                      placeholder="e.g. Bulk Order, Partnership, Product Inquiry"
+                      className="w-full h-14 md:h-16 bg-gray-50 rounded-[16px] md:rounded-[20px] px-6 md:px-8 font-bold text-brand-dark focus:ring-4 focus:ring-brand-blue/5 focus:bg-white border-transparent focus:border-brand-blue transition-all outline-none"
+                      placeholder="e.g. Bulk Order, Partnership"
                       value={formData.subject}
                       onChange={(e) => setFormData({...formData, subject: e.target.value})}
                     />
@@ -132,23 +132,23 @@ const Contact: React.FC = () => {
                     <label className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-dark pl-2">Message</label>
                     <textarea 
                       required
-                      className="w-full h-48 bg-gray-50 rounded-[32px] p-8 font-bold text-brand-dark focus:ring-4 focus:ring-brand-blue/5 focus:bg-white border-transparent focus:border-brand-blue transition-all outline-none resize-none"
-                      placeholder="Share your thoughts or questions..."
+                      className="w-full h-40 md:h-48 bg-gray-50 rounded-[24px] md:rounded-[32px] p-6 md:p-8 font-bold text-brand-dark focus:ring-4 focus:ring-brand-blue/5 focus:bg-white border-transparent focus:border-brand-blue transition-all outline-none resize-none"
+                      placeholder="Your message goes here..."
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                     />
                  </div>
-                 <button className="btn-primary w-full h-20 text-xl flex items-center justify-center gap-4 hover:bg-brand-dark">
-                    Send Inquiry <Send size={24} />
+                 <button className="btn-primary w-full h-16 md:h-20 text-lg md:text-xl flex items-center justify-center gap-4 hover:bg-brand-dark">
+                    Send Inquiry <Send size={20} className="md:w-6 md:h-6" />
                  </button>
                </form>
             ) : (
-               <div className="py-20 text-center">
-                  <div className="h-24 w-24 bg-brand-green/10 text-brand-green border-4 border-white shadow-xl rounded-full flex items-center justify-center mx-auto mb-10">
-                     <CheckCircle2 size={48} />
+               <div className="py-12 md:py-20 text-center">
+                  <div className="h-20 w-20 md:h-24 md:w-24 bg-brand-green/10 text-brand-green border-4 border-white shadow-xl rounded-full flex items-center justify-center mx-auto mb-8 md:mb-10">
+                     <CheckCircle2 size={40} className="md:w-12 md:h-12" />
                   </div>
-                  <h3 className="text-4xl font-serif font-bold text-brand-blue mb-4">Message Transmitted.</h3>
-                  <p className="text-gray-500 text-lg mb-12">We've received your inquiry and our team is already on it. Look out for an email from us shortly.</p>
+                  <h3 className="text-3xl md:text-4xl font-serif font-bold text-brand-blue mb-4">Message Transmitted.</h3>
+                  <p className="text-gray-500 text-base md:text-lg mb-8 md:mb-12">We've received your inquiry and our team is already on it. Look out for an email from us shortly.</p>
                   <button onClick={() => setIsSubmitted(false)} className="text-brand-orange font-bold uppercase tracking-widest text-sm hover:underline underline-offset-8">Send another message</button>
                </div>
             )}
@@ -156,22 +156,22 @@ const Contact: React.FC = () => {
 
           <div className="space-y-12">
             <div>
-              <h4 className="text-4xl font-serif font-bold text-brand-blue mb-8">Follow Our Journey</h4>
-              <p className="text-gray-500 text-lg leading-relaxed mb-10 italic">
+              <h4 className="text-3xl md:text-4xl font-serif font-bold text-brand-blue mb-6 md:mb-8">Follow Our Journey</h4>
+              <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 md:mb-10 italic">
                 Get behind-the-scenes glimpses into the harvests of Sindhudurg and discover new heritage flavors as they arrive.
               </p>
-              <div className="flex gap-6">
-                <a href="#" className="h-16 w-16 rounded-2xl bg-white shadow-premium flex items-center justify-center text-brand-orange hover:bg-brand-orange hover:text-white transition-all"><Instagram size={28} /></a>
-                <a href="#" className="h-16 w-16 rounded-2xl bg-white shadow-premium flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all"><Facebook size={28} /></a>
-                <a href="#" className="h-16 w-16 rounded-2xl bg-white shadow-premium flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all"><Twitter size={28} /></a>
+              <div className="flex gap-4 md:gap-6">
+                <a href="#" className="h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-white shadow-premium flex items-center justify-center text-brand-orange hover:bg-brand-orange hover:text-white transition-all"><Instagram size={24} className="md:w-7 md:h-7" /></a>
+                <a href="#" className="h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-white shadow-premium flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all"><Facebook size={24} className="md:w-7 md:h-7" /></a>
+                <a href="#" className="h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-white shadow-premium flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all"><Twitter size={24} className="md:w-7 md:h-7" /></a>
               </div>
             </div>
             
-            <div className="bg-brand-orange/5 p-12 rounded-[50px] border border-brand-orange/10 relative overflow-hidden group">
-               <div className="absolute top-0 right-0 h-24 w-24 bg-brand-orange/10 rounded-bl-[100px] transition-all group-hover:h-32 group-hover:w-32" />
-               <h5 className="text-xl font-bold text-brand-orange mb-4">Urgent Inquiries?</h5>
-               <p className="text-sm text-gray-600 leading-relaxed mb-8 font-medium">For immediate customer support regarding existing orders, please reach out via WhatsApp at +91 77109 03709.</p>
-               <div className="h-12 w-full bg-brand-blue rounded-2xl flex items-center justify-center text-white font-bold tracking-widest uppercase text-xs">Customer Response Desk</div>
+            <div className="bg-brand-orange/5 p-8 md:p-12 rounded-[40px] md:rounded-[50px] border border-brand-orange/10 relative overflow-hidden group">
+               <div className="absolute top-0 right-0 h-20 w-20 md:h-24 md:w-24 bg-brand-orange/10 rounded-bl-[100px] transition-all group-hover:h-32 group-hover:w-32" />
+               <h5 className="text-lg md:text-xl font-bold text-brand-orange mb-3 md:mb-4">Urgent Inquiries?</h5>
+               <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-6 md:mb-8 font-medium">For immediate customer support regarding existing orders, please reach out via WhatsApp at +91 77109 03709.</p>
+               <div className="h-12 w-full bg-brand-blue rounded-xl md:rounded-2xl flex items-center justify-center text-white font-bold tracking-widest uppercase text-[10px] md:text-xs text-center px-4">Customer Response Desk</div>
             </div>
           </div>
         </div>
