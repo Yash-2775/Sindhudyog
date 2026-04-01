@@ -150,8 +150,14 @@ const Navbar: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative bg-white rounded-[32px] md:rounded-[40px] shadow-2xl p-8 md:p-10 max-w-md w-full border border-white mx-4"
+              className="relative bg-white rounded-[32px] md:rounded-[40px] shadow-2xl p-8 md:p-10 max-w-md w-full border border-white mx-4 pointer-events-auto"
             >
+              <button 
+                onClick={() => setIsAdminModalOpen(false)}
+                className="absolute top-6 right-6 text-gray-400 hover:text-brand-orange transition-colors"
+              >
+                <X size={24} />
+              </button>
               <div className="h-14 w-14 md:h-16 md:w-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mb-6 md:mb-8">
                  <Lock size={26} className="md:w-[30px] md:h-[30px]" />
               </div>
@@ -185,15 +191,22 @@ const Navbar: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="lg:hidden fixed inset-0 bg-brand-dark/40 backdrop-blur-sm z-90"
+              className="lg:hidden fixed inset-0 bg-brand-dark/40 backdrop-blur-sm z-90 pointer-events-auto"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              className="lg:hidden absolute top-[calc(100%+16px)] left-4 right-4 bg-white/95 backdrop-blur-2xl rounded-[32px] shadow-2xl p-8 z-100 border border-white"
+              className="lg:hidden absolute top-[calc(100%+8px)] left-4 right-4 bg-white/95 backdrop-blur-2xl rounded-[32px] shadow-2xl p-8 z-100 border border-white pointer-events-auto"
             >
-              <div className="flex flex-col space-y-6">
+              <button 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="absolute top-6 right-6 h-10 w-10 bg-brand-cream rounded-full flex items-center justify-center text-brand-blue hover:text-brand-orange transition-colors"
+                aria-label="Close menu"
+              >
+                <X size={24} />
+              </button>
+              <div className="flex flex-col space-y-6 pr-10">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
