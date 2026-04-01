@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Palette from requested design */
+  --color-primary: #154212;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #2d5a27;
+  --color-on-primary-container: #9dd090;
+  
+  --color-secondary: #485f84;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #bbd3fd;
+  --color-on-secondary-container: #445a7f;
+  
+  --color-tertiary: #423824;
+  --color-on-tertiary: #ffffff;
+  
+  --color-brand-blue: #003366;
+  --color-brand-green: #2E7D32;
+  --color-brand-orange: #E65100;
+  --color-brand-cream: #fbf9f5;
+  --color-brand-dark: #1b1c1a;
+
+  /* Surfaces */
+  --color-surface: #fbf9f5;
+  --color-on-surface: #1b1c1a;
+  --color-surface-variant: #e4e2de;
+  --color-on-surface-variant: #42493e;
+  --color-surface-container-high: #eae8e4;
+  --color-surface-container-highest: #e4e2de;
+  --color-surface-container-lowest: #ffffff;
+
+  /* Typography */
+  --font-serif: "Newsreader", "Playfair Display", serif;
+  --font-sans: "Manrope", "Outfit", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-headline: "Newsreader", serif;
+
+  --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-brand-cream);
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-on-surface);
+  }
+
+  h1, h2, h3, h4, .serif-display {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-on-primary px-8 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-brand-green text-white px-8 py-3 rounded-full font-bold transition-all duration-300 hover:bg-brand-blue;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary px-8 py-3 rounded-full font-bold transition-all duration-300 hover:bg-primary hover:text-white;
+  }
+
+  /* Material Card Style from design */
+  .glass-card {
+    @apply transition-all duration-300 hover:translate-y-[-4px];
+  }
+
+  .badge-featured {
+    @apply bg-brand-orange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
